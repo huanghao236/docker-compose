@@ -1,6 +1,6 @@
 ARG LARADOCK_PHP_VERSION
-ARG TYPE=fpm
-FROM php:${LARADOCK_PHP_VERSION}-${TYPE}
+#FROM php:${LARADOCK_PHP_VERSION}-fpm
+FROM bitnami/php-fpm:${LARADOCK_PHP_VERSION}
 
 RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 
@@ -14,6 +14,6 @@ ENV LC_ALL ${LOCALE}
 
 WORKDIR /var/www
 
-CMD ["php-fpm"]
+#CMD ["php-fpm"]
 
 EXPOSE 9000

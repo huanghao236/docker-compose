@@ -28,7 +28,7 @@ services:
       args:
         - LARADOCK_PHP_VERSION=${PHP_VERSION}
     volumes:
-      - ./php-fpm/php${PHP_VERSION}.ini:/opt/bitnami/php/etc/php.ini
+      - ./php-fpm/custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
     ports:
       - "${PHP_FPM_XDEBUG_PORT}:9003"

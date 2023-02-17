@@ -22,8 +22,13 @@ RUN apk --update add wget \
   oniguruma-dev \
   libressl \
   libressl-dev \
-  supervisor \
-  composer
+  libpng-dev\
+  libzip-dev\
+  supervisor
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN docker-php-ext-install gd zip
 
 COPY supervisord.conf /etc/supervisord.conf
 

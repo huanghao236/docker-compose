@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:alpine
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 

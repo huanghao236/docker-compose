@@ -21,9 +21,9 @@ RUN docker-php-ext-install bcmath
 
 RUN docker-php-ext-install gd pcntl pdo_mysql shmop soap sockets sysvsem xmlrpc zip intl
 
-RUN set -eux; \
-    pecl install swoole-4.5.11; \
-    docker-php-ext-enable swoole;
+#RUN set -eux; \
+#    pecl install swoole-4.5.11; \
+#    docker-php-ext-enable swoole;
 
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"

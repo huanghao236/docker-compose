@@ -30,6 +30,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN docker-php-ext-install gd zip
 
+RUN if [ $(php -r "echo PHP_MAJOR_VERSION;") = "5" ]; then \
+  printf "\n" | pecl install -o -f redis-4.3.0; \
+  else \
+  printf "\n" | pecl install -o -f redis; \
+  fi; \
+  rm -rf /tmp/pear; \
+  docker-php-ext-enable redis
+
 COPY supervisord.conf /etc/supervisord.conf
 
 ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c",  "/etc/supervisord.conf"]

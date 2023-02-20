@@ -28,7 +28,7 @@ RUN apk --update add wget \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN docker-php-ext-install gd zip
+RUN docker-php-ext-install gd mysqli pdo_mysql zip
 
 RUN if [ $(php -r "echo PHP_MAJOR_VERSION;") = "5" ]; then \
   printf "\n" | pecl install -o -f redis-4.3.0; \

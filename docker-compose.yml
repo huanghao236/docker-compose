@@ -27,6 +27,7 @@ services:
       context: ./php-fpm
       args:
         - LARADOCK_PHP_VERSION=${PHP_VERSION}
+        - PUID=${PHP_FPM_PUID}
     volumes:
       - ./php-fpm/custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
